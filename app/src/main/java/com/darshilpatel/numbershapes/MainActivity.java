@@ -41,7 +41,11 @@ public class MainActivity extends AppCompatActivity {
         EditText usersNumber  = (EditText) findViewById(R.id.usersNumber);
 
 
- 
+        //checks for a number, prevents crash if no number is entered
+        if (usersNumber.getText().toString().isEmpty()){
+            toastMessage = "Please enter a number";
+        } else {
+
             Number myNumber = new Number();
             myNumber.number = Integer.parseInt(usersNumber.getText().toString());
 
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 toastMessage = myNumber.number + " is not a sqaure or triangular number";
             }
 
-
+        }
         Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_LONG).show();
 
     }
