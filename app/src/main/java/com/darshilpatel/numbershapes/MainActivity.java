@@ -39,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         String toastMessage = "";
         EditText usersNumber  = (EditText) findViewById(R.id.usersNumber);
-
-
+        
         //checks for a number, prevents crash if no number is entered
         if (usersNumber.getText().toString().isEmpty()){
             toastMessage = "Please enter a number";
@@ -62,9 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_LONG).show();
-
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
