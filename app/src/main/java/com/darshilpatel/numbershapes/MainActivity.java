@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,10 +19,7 @@ public class MainActivity extends AppCompatActivity {
             }else {
                 return false;
             }
-
-
         }
-
         public boolean ifTriangle(){
             int x = 1;
             int triangualNumber = 1;
@@ -30,25 +28,36 @@ public class MainActivity extends AppCompatActivity {
                 x++;
                 triangualNumber = triangualNumber + x;
             }
-
             if (triangualNumber == number){
                 return true;
             } else {
                 return false;
             }
-
         }
-
-
     }
-
-
-
     public void testNumber (View view){
+
+        String toastMessage = "";
         EditText usersNumber  = (EditText) findViewById(R.id.usersNumber);
 
-      
 
+ 
+            Number myNumber = new Number();
+            myNumber.number = Integer.parseInt(usersNumber.getText().toString());
+
+
+            if (myNumber.ifSquare()) {
+                if (myNumber.ifTriangle()) {
+                    toastMessage = myNumber.number + " is a triangular and square Number!";
+                } else {
+                    toastMessage = myNumber.number + " is a sqaure number.";
+                }
+            } else {
+                toastMessage = myNumber.number + " is not a sqaure or triangular number";
+            }
+
+
+        Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_LONG).show();
 
     }
 
@@ -57,7 +66,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
 }
